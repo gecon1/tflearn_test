@@ -36,4 +36,3 @@ iris = pd.read_csv("iris/IRIS.csv") # the iris dataset is now a Pandas DataFrame
 sns.pairplot(iris.filter(items=['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species']), hue="Species", size=3)
 
 plt.show()
-
