@@ -11,8 +11,13 @@ sns.set(style="white", color_codes=True)
 # Next, we'll load the Iris flower dataset, which is in the "../input/" directory
 stars = pd.read_csv("data_stars/c_0000.csv") # the iris dataset is now a Pandas DataFrame
 
+r = []
+
+
 # Let's see what's in the iris data - Jupyter notebooks print the result of the last thing you do
-print(stars.head())
+print(stars["x"].head())
+
+
 # print(stars["m"].value_counts())
 #
 # stars.plot(kind="scatter", x="x", y="y")
