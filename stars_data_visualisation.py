@@ -1,5 +1,6 @@
 # First, we'll import pandas, a data processing and CSV file I/O library
 import pandas as pd
+import numpy as np
 
 # We'll also import seaborn, a Python graphing library
 import warnings # current version of seaborn generates a bunch of warnings that we'll ignore
@@ -11,12 +12,29 @@ sns.set(style="white", color_codes=True)
 # Next, we'll load the Iris flower dataset, which is in the "../input/" directory
 stars = pd.read_csv("data_stars/c_0000.csv") # the iris dataset is now a Pandas DataFrame
 
-r = []
+# r = []
 
 
 # Let's see what's in the iris data - Jupyter notebooks print the result of the last thing you do
-print(stars["x"].head())
+# print(stars["x"].head())
+# r = pd.Series(stars['x'],)
+x = stars['x'].head(1000)
+y = stars['y'].head(1000)
+z = stars['z'].head(1000)
+r = np.sqrt(x*x + y*y + z*z)
 
+vx = stars['vx'].head(1000)
+vy = stars['vy'].head(1000)
+vz = stars['vz'].head(1000)
+
+vr = np.sqrt(vx*vx + vy*vy + vz*vz)
+# all= [None,None,None]
+# all['x'] = stars['x'].head()
+# print(r)
+# print(vr)
+plt.scatter(r,vr)
+
+# sns.jointplot(x="r", y="vr", data=stars, size=5)
 
 # print(stars["m"].value_counts())
 #
