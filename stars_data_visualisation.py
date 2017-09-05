@@ -18,21 +18,25 @@ stars = pd.read_csv("data_stars/c_0000.csv") # the iris dataset is now a Pandas 
 # Let's see what's in the iris data - Jupyter notebooks print the result of the last thing you do
 # print(stars["x"].head())
 # r = pd.Series(stars['x'],)
-x = stars['x'].head(1000)
-y = stars['y'].head(1000)
-z = stars['z'].head(1000)
-r = np.sqrt(x*x + y*y + z*z)
+testrange = 100
 
-vx = stars['vx'].head(1000)
-vy = stars['vy'].head(1000)
-vz = stars['vz'].head(1000)
+x = stars['x'][:testrange]
+y = stars['y'][:testrange]
+z = stars['z'][:testrange]
+r = np.sqrt(np.square(x) + np.square(y) + np.square(z))
+stars['r'] = r
 
-vr = np.sqrt(vx*vx + vy*vy + vz*vz)
+vx = stars['vx'][:testrange]
+vy = stars['vy'][:testrange]
+vz = stars['vz'][:testrange]
+vr = np.sqrt(np.square(vx) + np.square(vy) + np.square(vz))
+stars['vr'] = vr
+print(stars[['vx','vy','vz','vr','r']][:testrange])
 # all= [None,None,None]
 # all['x'] = stars['x'].head()
 # print(r)
 # print(vr)
-plt.scatter(r,vr)
+# plt.scatter(r,vr)
 
 # sns.jointplot(x="r", y="vr", data=stars, size=5)
 
